@@ -114,7 +114,7 @@ export default function GallerySection() {
                     >
                       <img
                         ref={(el) => { imageRefs.current[globalIndex] = el; }}
-                        src={item.src}
+                        src={`${import.meta.env.BASE_URL}${item.src.replace(/^\//, '')}`}
                         alt={item.name}
                         loading="lazy"
                         className="absolute inset-0 w-full h-full object-cover will-change-transform transition-transform duration-600 ease-out group-hover:scale-105"
