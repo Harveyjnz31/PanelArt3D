@@ -66,7 +66,7 @@ export default function HeroSection({ ready }: HeroSectionProps) {
           <h1
             ref={titleRef}
             className="font-display text-primary-light text-glow opacity-0"
-            style={{ fontSize: 'clamp(3rem, 8vw, 7rem)', lineHeight: 1.1 }}
+            style={{ fontSize: 'clamp(2rem, 8vw, 7rem)', lineHeight: 1.1 }}
           >
             TRANSFORMA
             <br />

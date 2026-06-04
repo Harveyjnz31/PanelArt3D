@@ -27,41 +27,91 @@ export default function GallerySection() {
     const items = itemRefs.current.filter(Boolean) as HTMLDivElement[];
     const images = imageRefs.current.filter(Boolean) as HTMLImageElement[];
 
-    const triggers: ScrollTrigger[] = [];
+    const mm = gsap.matchMedia();
 
-    items.forEach((item, i) => {
-      const image = images[i];
-      if (!image) return;
+    // Desktop: animaciones de expansión de ancho completas
+    mm.add("(min-width: 1024px)", () => {
+      const triggers: ScrollTrigger[] = [];
 
-      const st1 = ScrollTrigger.create({
-        trigger: item,
-        start: 'top 80%',
-        end: 'top 20%',
-        scrub: true,
-        onUpdate: (self) => {
-          const progress = self.progress;
-          const startW = parseFloat(startWidths[i]) / 100;
-          const currentW = startW + (1 - startW) * progress;
-          gsap.set(item, { width: `${currentW * 100}%` });
-          gsap.set(image, { scale: 2.2 - 1.2 * progress });
-        },
+      items.forEach((item, i) => {
+        const image = images[i];
+        if (!image) return;
+
+        const st1 = ScrollTrigger.create({
+          trigger: item,
+          start: 'top 80%',
+          end: 'top 20%',
+          scrub: true,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            const startW = parseFloat(startWidths[i]) / 100;
+            const currentW = startW + (1 - startW) * progress;
+            gsap.set(item, { width: `${currentW * 100}%` });
+            gsap.set(image, { scale: 2.2 - 1.2 * progress });
+          },
+        });
+        triggers.push(st1);
+
+        const st2 = ScrollTrigger.create({
+          trigger: item,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+          onUpdate: (self) => {
+            gsap.set(image, { yPercent: -15 * self.progress });
+          },
+        });
+        triggers.push(st2);
       });
-      triggers.push(st1);
 
-      const st2 = ScrollTrigger.create({
-        trigger: item,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true,
-        onUpdate: (self) => {
-          gsap.set(image, { yPercent: -15 * self.progress });
-        },
+      return () => {
+        triggers.forEach((st) => st.kill());
+      };
+    });
+
+    // Móvil y Tablet: ancho estable de 100% y efectos visuales suaves (sin saltos de layout)
+    mm.add("(max-width: 1023px)", () => {
+      const triggers: ScrollTrigger[] = [];
+
+      items.forEach((item, i) => {
+        const image = images[i];
+        if (!image) return;
+
+        // Aseguramos que el ancho en móvil se mantenga al 100% de su columna
+        gsap.set(item, { width: '100%' });
+
+        const st1 = ScrollTrigger.create({
+          trigger: item,
+          start: 'top 90%',
+          end: 'bottom 10%',
+          scrub: true,
+          onUpdate: (self) => {
+            // Escala suave interna de la imagen
+            gsap.set(image, { scale: 1.25 - 0.15 * self.progress });
+          },
+        });
+        triggers.push(st1);
+
+        const st2 = ScrollTrigger.create({
+          trigger: item,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+          onUpdate: (self) => {
+            // Parallax sutil
+            gsap.set(image, { yPercent: -8 * self.progress });
+          },
+        });
+        triggers.push(st2);
       });
-      triggers.push(st2);
+
+      return () => {
+        triggers.forEach((st) => st.kill());
+      };
     });
 
     return () => {
-      triggers.forEach((st) => st.kill());
+      mm.revert();
     };
   }, []);
 
