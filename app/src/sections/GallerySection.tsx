@@ -110,7 +110,7 @@ export default function GallerySection() {
                       key={item.src}
                       ref={(el) => { itemRefs.current[globalIndex] = el; }}
                       className="relative overflow-hidden cursor-pointer group mx-auto"
-                      style={{ width: startWidths[globalIndex], aspectRatio: '4/5' }}
+                      style={{ width: '100%', aspectRatio: '4/5' }}
                     >
                       <img
                         ref={(el) => { imageRefs.current[globalIndex] = el; }}
