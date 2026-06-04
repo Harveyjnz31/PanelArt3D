@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { CONTACT_PHONE_DISPLAY, getWhatsAppUrl } from '../lib/contact';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,6 +35,18 @@ export default function CTASection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const form = e.currentTarget as HTMLFormElement;
+    const data = new FormData(form);
+    const message = [
+      'Hola PanelArt 3D, quiero cotizar un proyecto en Cartagena de Indias.',
+      `Nombre: ${data.get('name') || ''}`,
+      `Email: ${data.get('email') || ''}`,
+      `Teléfono: ${data.get('phone') || ''}`,
+      `Tipo de proyecto: ${data.get('projectType') || ''}`,
+      `Mensaje: ${data.get('message') || ''}`,
+    ].join('\n');
+
+    window.open(getWhatsAppUrl(message), '_blank', 'noopener,noreferrer');
     setSubmitted(true);
   };
 
@@ -57,7 +70,10 @@ export default function CTASection() {
             LISTO PARA TRANSFORMAR TU ESPACIO?
           </h2>
           <p className="font-body text-text-muted mt-6 leading-relaxed" style={{ lineHeight: 1.7 }}>
-            Cuéntanos sobre tu proyecto. Te asesoramos gratis y te enviamos una cotización sin compromiso. Atendemos proyectos residenciales, comerciales y hoteleros en toda República Dominicana.
+            Cuéntanos sobre tu proyecto. Te asesoramos gratis y te enviamos una cotización sin compromiso. Atendemos proyectos residenciales, comerciales y hoteleros en Cartagena de Indias, Colombia.
+          </p>
+          <p className="font-body text-dark mt-4 font-semibold">
+            WhatsApp: {CONTACT_PHONE_DISPLAY}
           </p>
         </div>
 
@@ -72,29 +88,33 @@ export default function CTASection() {
               </div>
               <h3 className="font-body text-xl font-semibold text-dark mb-2">¡Mensaje Enviado!</h3>
               <p className="font-body text-text-muted text-center">
-                Nos pondremos en contacto contigo muy pronto.
+                Tu mensaje se abrió en WhatsApp para enviarlo directamente.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               <input
                 type="text"
+                name="name"
                 placeholder="Nombre"
                 required
                 className="bg-transparent border-0 border-b border-dark/20 py-4 font-body text-dark placeholder:text-text-muted/60 focus:border-primary-accent focus:outline-none transition-colors duration-300"
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
                 required
                 className="bg-transparent border-0 border-b border-dark/20 py-4 font-body text-dark placeholder:text-text-muted/60 focus:border-primary-accent focus:outline-none transition-colors duration-300"
               />
               <input
                 type="tel"
+                name="phone"
                 placeholder="Teléfono"
                 className="bg-transparent border-0 border-b border-dark/20 py-4 font-body text-dark placeholder:text-text-muted/60 focus:border-primary-accent focus:outline-none transition-colors duration-300"
               />
               <select
+                name="projectType"
                 required
                 defaultValue=""
                 className="bg-transparent border-0 border-b border-dark/20 py-4 font-body text-dark focus:border-primary-accent focus:outline-none transition-colors duration-300 appearance-none cursor-pointer"
@@ -108,6 +128,7 @@ export default function CTASection() {
                 <option value="otro">Otro</option>
               </select>
               <textarea
+                name="message"
                 placeholder="Cuéntanos sobre tu proyecto..."
                 rows={3}
                 className="bg-transparent border-0 border-b border-dark/20 py-4 font-body text-dark placeholder:text-text-muted/60 focus:border-primary-accent focus:outline-none transition-colors duration-300 resize-none"
@@ -116,7 +137,7 @@ export default function CTASection() {
                 type="submit"
                 className="w-full bg-dark text-primary-light font-body text-sm uppercase tracking-[0.1em] py-4 border-0 hover:bg-primary-accent hover:text-dark transition-all duration-300 cursor-pointer"
               >
-                Enviar Mensaje
+                Enviar por WhatsApp
               </button>
             </form>
           )}

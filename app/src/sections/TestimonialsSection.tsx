@@ -9,7 +9,7 @@ const testimonials = [
     quote:
       'Los paneles de PanelArt transformaron completamente nuestra sala. El patrón de ondas crea un efecto hipnótico cuando la luz del atardecer entra por la ventana. Todos los visitantes preguntan quién los hizo.',
     name: 'María Elena Vásquez',
-    role: 'Residencial — Casa del Sol, Santo Domingo',
+    role: 'Residencial — Casa del Sol, Cartagena',
   },
   {
     quote:

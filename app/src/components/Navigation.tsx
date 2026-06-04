@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { getWhatsAppUrl } from '../lib/contact';
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -55,8 +56,9 @@ export default function Navigation() {
           </a>
         ))}
         <a
-          href="#contact"
-          onClick={(e) => handleClick(e, '#contact')}
+          href={getWhatsAppUrl()}
+          target="_blank"
+          rel="noopener noreferrer"
           className="font-body text-xs uppercase tracking-[0.1em] text-primary-accent border border-primary-accent rounded-full px-5 py-2 hover:bg-primary-accent hover:text-dark transition-all duration-300"
         >
           Cotizar
@@ -88,8 +90,10 @@ export default function Navigation() {
             </a>
           ))}
           <a
-            href="#contact"
-            onClick={(e) => handleClick(e, '#contact')}
+            href={getWhatsAppUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMenuOpen(false)}
             className="font-body text-xs uppercase tracking-[0.1em] text-primary-accent border border-primary-accent rounded-full px-5 py-2"
           >
             Cotizar

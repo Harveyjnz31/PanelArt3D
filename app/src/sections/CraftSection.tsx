@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import PillButton from '../components/PillButton';
+import { getWhatsAppUrl } from '../lib/contact';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -125,9 +126,9 @@ export default function CraftSection() {
       <div className="section-container text-center mt-16">
         <PillButton
           invert
-          onClick={() => {
-            document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-          }}
+          href={getWhatsAppUrl('Hola PanelArt 3D, quiero solicitar una cotización gratis para un proyecto en Cartagena de Indias.')}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Solicita una Cotización Gratis
         </PillButton>

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import PillButton from '../components/PillButton';
+import { getWhatsAppUrl } from '../lib/contact';
 
 interface HeroSectionProps {
   ready: boolean;
@@ -59,7 +60,7 @@ export default function HeroSection({ ready }: HeroSectionProps) {
             ref={overlineRef}
             className="font-body text-xs uppercase tracking-[0.12em] text-primary-accent mb-6 opacity-0"
           >
-            PANELES 3D EN YESO — SANTO DOMINGO
+            PANELES 3D EN YESO — CARTAGENA DE INDIAS
           </p>
 
           <h1
@@ -77,14 +78,14 @@ export default function HeroSection({ ready }: HeroSectionProps) {
             className="font-body text-warm-light mt-6 max-w-[560px] opacity-0"
             style={{ fontSize: 'clamp(1rem, 1.2vw, 1.125rem)', lineHeight: 1.7 }}
           >
-            Diseño, fabricación e instalación de paneles decorativos en yeso para interiores residenciales y comerciales en República Dominicana.
+            Diseño, fabricación e instalación de paneles decorativos en yeso para interiores residenciales y comerciales en Cartagena de Indias, Colombia.
           </p>
 
           <div ref={ctaRef} className="mt-8 opacity-0 pointer-events-auto">
             <PillButton
-              onClick={() => {
-                document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Cotiza Tu Proyecto
             </PillButton>

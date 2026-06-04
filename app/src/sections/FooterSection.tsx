@@ -1,3 +1,5 @@
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, getWhatsAppUrl } from '../lib/contact';
+
 export default function FooterSection() {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -21,7 +23,7 @@ export default function FooterSection() {
               PANELART 3D
             </p>
             <p className="font-body text-xs uppercase tracking-[0.12em] text-primary-light/50">
-              Paneles decorativos 3D en yeso — Santo Domingo, República Dominicana
+              Paneles decorativos 3D en yeso — Cartagena de Indias, Colombia
             </p>
           </div>
 
@@ -47,10 +49,18 @@ export default function FooterSection() {
           {/* Contact */}
           <div className="flex flex-col gap-2">
             <a
-              href="tel:+18095550147"
+              href={`tel:${CONTACT_PHONE_TEL}`}
               className="font-body text-sm text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
             >
-              +1 (809) 555-0147
+              {CONTACT_PHONE_DISPLAY}
+            </a>
+            <a
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-body text-sm text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
+            >
+              WhatsApp
             </a>
             <a
               href="mailto:hola@panelart3d.com"
@@ -78,7 +88,7 @@ export default function FooterSection() {
             © 2025 PanelArt 3D. Todos los derechos reservados.
           </p>
           <p className="font-body text-xs uppercase tracking-[0.12em] text-primary-light/30">
-            Santo Domingo, RD
+            Cartagena de Indias, Colombia
           </p>
         </div>
       </div>

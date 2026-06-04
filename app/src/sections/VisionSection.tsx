@@ -85,7 +85,7 @@ export default function VisionSection() {
             className="font-body mt-6 leading-relaxed"
             style={{ color: 'rgba(245, 245, 245, 0.8)', lineHeight: 1.8 }}
           >
-            Cada panel comienza como una visión. Trabajamos con yeso de alta calidad, moldeado a mano en nuestro taller de Santo Domingo. El yeso no es solo un material — es un lienzo tridimensional que captura la luz, crea sombras danzantes y da vida a las paredes. Nuestros paneles son resistentes al fuego, fáciles de pintar y duran décadas.
+            Cada panel comienza como una visión. Trabajamos con yeso de alta calidad, moldeado a mano para proyectos en Cartagena de Indias. El yeso no es solo un material — es un lienzo tridimensional que captura la luz, crea sombras danzantes y da vida a las paredes. Nuestros paneles son resistentes al fuego, fáciles de pintar y duran décadas.
           </p>
 
           <p
