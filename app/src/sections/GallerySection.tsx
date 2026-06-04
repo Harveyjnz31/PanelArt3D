@@ -69,7 +69,7 @@ export default function GallerySection() {
       };
     });
 
-    // Móvil y Tablet: ancho estable de 100% y efectos visuales suaves (sin saltos de layout)
+    // Móvil y Tablet: ancho de diseño estable con animación de clip-path (evita vibración y simula el crecimiento)
     mm.add("(max-width: 1023px)", () => {
       const triggers: ScrollTrigger[] = [];
 
@@ -77,17 +77,26 @@ export default function GallerySection() {
         const image = images[i];
         if (!image) return;
 
-        // Aseguramos que el ancho en móvil se mantenga al 100% de su columna
+        // Aseguramos que el ancho en móvil se mantenga al 100% de la columna
         gsap.set(item, { width: '100%' });
+
+        const startW = parseFloat(startWidths[i]) / 100;
+        const maxInset = ((1 - startW) / 2) * 100; // Porcentaje de recorte inicial en cada lado
 
         const st1 = ScrollTrigger.create({
           trigger: item,
-          start: 'top 90%',
-          end: 'bottom 10%',
+          start: 'top 85%',
+          end: 'top 15%',
           scrub: true,
           onUpdate: (self) => {
-            // Escala suave interna de la imagen
-            gsap.set(image, { scale: 1.25 - 0.15 * self.progress });
+            const progress = self.progress;
+            const currentInset = maxInset * (1 - progress);
+            
+            // Recorte horizontal dinámico (simula el crecimiento de la imagen)
+            gsap.set(item, { clipPath: `inset(0% ${currentInset}%)` });
+            
+            // Escala interna para darle profundidad tridimensional
+            gsap.set(image, { scale: 1.8 - 0.8 * progress });
           },
         });
         triggers.push(st1);
@@ -98,8 +107,8 @@ export default function GallerySection() {
           end: 'bottom top',
           scrub: true,
           onUpdate: (self) => {
-            // Parallax sutil
-            gsap.set(image, { yPercent: -8 * self.progress });
+            // Paralaje suave en la imagen
+            gsap.set(image, { yPercent: -10 * self.progress });
           },
         });
         triggers.push(st2);
