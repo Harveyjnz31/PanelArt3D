@@ -39,13 +39,16 @@ export default function Navigation() {
           : 'bg-transparent'
       }`}
     >
-      <a href="#hero" onClick={(e) => handleClick(e, '#hero')} className="flex items-center">
+      <a href="#hero" onClick={(e) => handleClick(e, '#hero')} className="flex items-center gap-3">
         <img
           src={`${import.meta.env.BASE_URL}logo.png`}
           alt="PanelArt 3D"
-          className="h-10 w-auto object-contain"
+          className="h-12 w-auto object-contain"
           style={{ filter: 'drop-shadow(0 0 8px rgba(200, 150, 62, 0.2))' }}
         />
+        <span className="font-display text-base text-primary-light tracking-wider">
+          PANELART 3D
+        </span>
       </a>
 
       {/* Desktop Nav */}
