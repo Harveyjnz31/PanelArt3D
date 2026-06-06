@@ -64,8 +64,8 @@ export default function VisionSection() {
         <div ref={imageRef} className="opacity-0">
           <div className="aspect-[3/4] overflow-hidden">
             <img
-              src={`${import.meta.env.BASE_URL}images/gallery-1.jpg`}
-              alt="Paneles decorativos 3D del portafolio de PanelArt 3D"
+              src={`${import.meta.env.BASE_URL}images/vision.jpg`}
+              alt="Artesano trabajando paneles 3D en yeso"
               className="w-full h-full object-cover"
               loading="lazy"
             />

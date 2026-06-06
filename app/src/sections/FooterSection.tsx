@@ -68,23 +68,23 @@ export default function FooterSection() {
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body text-sm text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
+              className="font-body inline-flex items-center justify-center rounded-full border border-primary-accent px-4 py-2 text-sm text-primary-light hover:bg-primary-accent hover:text-dark transition-colors duration-300"
             >
-              WhatsApp
+              WhatsApp: {CONTACT_PHONE_DISPLAY}
+            </a>
+            <a
+              href="https://facebook.com/PanelArt3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-body inline-flex items-center justify-center rounded-full border border-primary-accent px-4 py-2 text-sm text-primary-light hover:bg-primary-accent hover:text-dark transition-colors duration-300"
+            >
+              Facebook
             </a>
             <a
               href="mailto:hola@panelart3d.com"
               className="font-body text-sm text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
             >
               hola@panelart3d.com
-            </a>
-            <a
-              href="https://facebook.com/PanelArt3D"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-body text-sm text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
-            >
-              Facebook: PanelArt3D
             </a>
             <a
               href="https://instagram.com/panelart3d"
