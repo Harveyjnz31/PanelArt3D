@@ -37,6 +37,9 @@ jobs:
         working-directory: app
         run: npm run build
 
+      - name: Create CNAME
+        run: echo "panelart3d.com" > app/dist/CNAME
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
