@@ -5,8 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const galleryItems = [
-  { col: 1, src: '/images/gallery-1.jpg', type: 'RESIDENCIAL', name: 'Sala Principal — Casa del Sol' },
-  { col: 1, src: '/images/gallery-2.jpg', type: 'HOTELERÍA', name: 'Lobby — Hotel Aurora' },
+  { col: 1, src: '/images/portfolio-1.jpeg', type: 'RESIDENCIAL', name: 'Sala Principal — Casa del Sol' },
+  { col: 1, src: '/images/portfolio-2.jpeg', type: 'HOTELERÍA', name: 'Lobby — Hotel Aurora' },
   { col: 1, src: '/images/gallery-3.jpg', type: 'RESTAURANTE', name: 'El Jardín Secreto' },
   { col: 2, src: '/images/gallery-4.jpg', type: 'COMERCIAL', name: 'Oficinas Torres del Parque' },
   { col: 2, src: '/images/gallery-5.jpg', type: 'RESIDENCIAL', name: 'Suite Principal — Villa Serena' },
