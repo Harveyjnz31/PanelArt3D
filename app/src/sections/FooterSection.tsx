@@ -1,8 +1,4 @@
-import {
-  CONTACT_PHONE_DISPLAY,
-  CONTACT_PHONE_TEL,
-  getWhatsAppUrl,
-} from "../lib/contact";
+import { getWhatsAppUrl } from "../lib/contact";
 
 export default function FooterSection() {
   const handleClick = (
@@ -62,15 +58,15 @@ export default function FooterSection() {
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body inline-flex items-center justify-center rounded-full border border-primary-accent px-4 py-2 text-sm text-primary-light hover:bg-primary-accent hover:text-dark transition-colors duration-300"
+              className="font-body text-sm text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
             >
-              WhatsApp: {CONTACT_PHONE_DISPLAY}
+              WhatsApp
             </a>
             <a
               href="https://www.facebook.com/profile.php?id=61590263687253&active_status=null&start_date[min]=null&start_date[max]=null"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body inline-flex items-center justify-center rounded-full border border-primary-accent px-4 py-2 text-sm text-primary-light hover:bg-primary-accent hover:text-dark transition-colors duration-300"
+              className="font-body text-sm text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
             >
               Facebook
             </a>
@@ -78,7 +74,7 @@ export default function FooterSection() {
               href="https://instagram.com/panelart3d"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body inline-flex items-center justify-center rounded-full border border-primary-accent px-4 py-2 text-sm text-primary-light hover:bg-primary-accent hover:text-dark transition-colors duration-300"
+              className="font-body text-sm text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
             >
               Instagram
             </a>
@@ -86,7 +82,7 @@ export default function FooterSection() {
               href="mailto:hola@panelart3d.com"
               className="font-body text-sm text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
             >
-              hola@panelart3d.com
+              Email
             </a>
           </div>
         </div>
