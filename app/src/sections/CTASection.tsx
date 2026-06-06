@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { CONTACT_PHONE_DISPLAY, getWhatsAppUrl } from '../lib/contact';
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CONTACT_PHONE_DISPLAY, getWhatsAppUrl } from "../lib/contact";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,13 +20,21 @@ export default function CTASection() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
-        start: 'top 80%',
-        toggleActions: 'play none none none',
+        start: "top 80%",
+        toggleActions: "play none none none",
       },
     });
 
-    tl.fromTo(left, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out' })
-      .fromTo(right, { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out' }, 0.2);
+    tl.fromTo(
+      left,
+      { opacity: 0, x: -30 },
+      { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
+    ).fromTo(
+      right,
+      { opacity: 0, x: 30 },
+      { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
+      0.2,
+    );
 
     return () => {
       tl.kill();
@@ -38,15 +46,15 @@ export default function CTASection() {
     const form = e.currentTarget as HTMLFormElement;
     const data = new FormData(form);
     const message = [
-      'Hola PanelArt 3D, quiero cotizar un proyecto en Cartagena de Indias.',
-      `Nombre: ${data.get('name') || ''}`,
-      `Email: ${data.get('email') || ''}`,
-      `Teléfono: ${data.get('phone') || ''}`,
-      `Tipo de proyecto: ${data.get('projectType') || ''}`,
-      `Mensaje: ${data.get('message') || ''}`,
-    ].join('\n');
+      "Hola PanelArt 3D, quiero cotizar un proyecto en Cartagena de Indias.",
+      `Nombre: ${data.get("name") || ""}`,
+      `Email: ${data.get("email") || ""}`,
+      `Teléfono: ${data.get("phone") || ""}`,
+      `Tipo de proyecto: ${data.get("projectType") || ""}`,
+      `Mensaje: ${data.get("message") || ""}`,
+    ].join("\n");
 
-    window.open(getWhatsAppUrl(message), '_blank', 'noopener,noreferrer');
+    window.open(getWhatsAppUrl(message), "_blank", "noopener,noreferrer");
     setSubmitted(true);
   };
 
@@ -55,7 +63,7 @@ export default function CTASection() {
       id="contact"
       ref={sectionRef}
       className="relative w-full z-[3]"
-      style={{ background: '#e8d5b5', padding: '16vh 0' }}
+      style={{ background: "#e8d5b5", padding: "16vh 0" }}
     >
       <div className="section-container grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-16">
         {/* Left Column */}
@@ -65,15 +73,17 @@ export default function CTASection() {
           </p>
           <h2
             className="font-display text-dark"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', lineHeight: 1.15 }}
+            style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1.15 }}
           >
             LISTO PARA TRANSFORMAR TU ESPACIO?
           </h2>
-          <p className="font-body text-text-muted mt-6 leading-relaxed" style={{ lineHeight: 1.7 }}>
-            Cuéntanos sobre tu proyecto. Te asesoramos gratis y te enviamos una cotización sin compromiso. Atendemos proyectos residenciales, comerciales y hoteleros en Cartagena de Indias, Colombia.
-          </p>
-          <p className="font-body text-dark mt-4 font-semibold">
-            WhatsApp: {CONTACT_PHONE_DISPLAY}
+          <p
+            className="font-body text-text-muted mt-6 leading-relaxed"
+            style={{ lineHeight: 1.7 }}
+          >
+            Cuéntanos sobre tu proyecto. Te asesoramos gratis y te enviamos una
+            cotización sin compromiso. Atendemos proyectos residenciales,
+            comerciales y hoteleros en Cartagena de Indias, Colombia.
           </p>
         </div>
 
@@ -82,11 +92,22 @@ export default function CTASection() {
           {submitted ? (
             <div className="flex flex-col items-center justify-center h-full py-12">
               <div className="w-16 h-16 rounded-full bg-primary-accent/20 flex items-center justify-center mb-6">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c8963e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#c8963e"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
               </div>
-              <h3 className="font-body text-xl font-semibold text-dark mb-2">¡Mensaje Enviado!</h3>
+              <h3 className="font-body text-xl font-semibold text-dark mb-2">
+                ¡Mensaje Enviado!
+              </h3>
               <p className="font-body text-text-muted text-center">
                 Tu mensaje se abrió en WhatsApp para enviarlo directamente.
               </p>
