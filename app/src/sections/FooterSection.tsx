@@ -53,12 +53,12 @@ export default function FooterSection() {
           </div>
 
           {/* Contact */}
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <a
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body text-sm text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
+              className="font-body text-sm uppercase tracking-[0.1em] text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
             >
               WhatsApp
             </a>
@@ -66,7 +66,7 @@ export default function FooterSection() {
               href="https://www.facebook.com/profile.php?id=61590263687253&active_status=null&start_date[min]=null&start_date[max]=null"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body text-sm text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
+              className="font-body text-sm uppercase tracking-[0.1em] text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
             >
               Facebook
             </a>
@@ -74,13 +74,13 @@ export default function FooterSection() {
               href="https://instagram.com/panelart3d"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body text-sm text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
+              className="font-body text-sm uppercase tracking-[0.1em] text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
             >
               Instagram
             </a>
             <a
               href="mailto:hola@panelart3d.com"
-              className="font-body text-sm text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
+              className="font-body text-sm uppercase tracking-[0.1em] text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
             >
               Email
             </a>
