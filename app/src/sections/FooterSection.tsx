@@ -59,12 +59,6 @@ export default function FooterSection() {
           {/* Contact */}
           <div className="flex flex-col gap-2">
             <a
-              href={`tel:${CONTACT_PHONE_TEL}`}
-              className="font-body text-sm text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
-            >
-              {CONTACT_PHONE_DISPLAY}
-            </a>
-            <a
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
@@ -73,7 +67,7 @@ export default function FooterSection() {
               WhatsApp: {CONTACT_PHONE_DISPLAY}
             </a>
             <a
-              href="https://facebook.com/PanelArt3D"
+              href="https://www.facebook.com/profile.php?id=61590263687253&active_status=null&start_date[min]=null&start_date[max]=null"
               target="_blank"
               rel="noopener noreferrer"
               className="font-body inline-flex items-center justify-center rounded-full border border-primary-accent px-4 py-2 text-sm text-primary-light hover:bg-primary-accent hover:text-dark transition-colors duration-300"
@@ -81,18 +75,18 @@ export default function FooterSection() {
               Facebook
             </a>
             <a
+              href="https://instagram.com/panelart3d"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-body inline-flex items-center justify-center rounded-full border border-primary-accent px-4 py-2 text-sm text-primary-light hover:bg-primary-accent hover:text-dark transition-colors duration-300"
+            >
+              Instagram
+            </a>
+            <a
               href="mailto:hola@panelart3d.com"
               className="font-body text-sm text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
             >
               hola@panelart3d.com
-            </a>
-            <a
-              href="https://instagram.com/panelart3d"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-body text-sm text-primary-light/60 hover:text-primary-accent transition-colors duration-300"
-            >
-              Instagram: @panelart3d
             </a>
           </div>
         </div>
