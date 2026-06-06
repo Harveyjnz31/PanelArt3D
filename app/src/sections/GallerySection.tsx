@@ -31,7 +31,7 @@ const galleryItems = [
   },
   {
     col: 2,
-    src: "/images/gallery-5.jpg",
+    src: "/images/portfolio-5.jpeg",
     type: "RESIDENCIAL",
     name: "Suite Principal — Villa Serena",
   },
