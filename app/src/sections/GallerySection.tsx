@@ -1,22 +1,77 @@
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const galleryItems = [
-  { col: 1, src: '/images/portfolio-1.jpeg', type: 'RESIDENCIAL', name: 'Sala Principal — Casa del Sol' },
-  { col: 1, src: '/images/portfolio-2.jpeg', type: 'HOTELERÍA', name: 'Lobby — Hotel Aurora' },
-  { col: 1, src: '/images/gallery-3.jpg', type: 'RESTAURANTE', name: 'El Jardín Secreto' },
-  { col: 2, src: '/images/gallery-4.jpg', type: 'COMERCIAL', name: 'Oficinas Torres del Parque' },
-  { col: 2, src: '/images/gallery-5.jpg', type: 'RESIDENCIAL', name: 'Suite Principal — Villa Serena' },
-  { col: 2, src: '/images/gallery-6.jpg', type: 'COMERCIAL', name: 'Boutique Estilo 3D' },
-  { col: 3, src: '/images/gallery-7.jpg', type: 'RESIDENCIAL', name: 'Spa — Residencial Oasis' },
-  { col: 3, src: '/images/gallery-8.jpg', type: 'RESIDENCIAL', name: 'Comedor — Casa Colonial' },
-  { col: 3, src: '/images/gallery-9.jpg', type: 'WELLNESS', name: 'Centro Bienestar Zen' },
+  {
+    col: 1,
+    src: "/images/portfolio-1.jpeg",
+    type: "RESIDENCIAL",
+    name: "Sala Principal — Casa del Sol",
+  },
+  {
+    col: 1,
+    src: "/images/portfolio-2.jpeg",
+    type: "HOTELERÍA",
+    name: "Lobby — Hotel Aurora",
+  },
+  {
+    col: 1,
+    src: "/images/portfolio-3.jpeg",
+    type: "RESTAURANTE",
+    name: "El Jardín Secreto",
+  },
+  {
+    col: 2,
+    src: "/images/portfolio-4.jpeg",
+    type: "COMERCIAL",
+    name: "Oficinas Torres del Parque",
+  },
+  {
+    col: 2,
+    src: "/images/gallery-5.jpg",
+    type: "RESIDENCIAL",
+    name: "Suite Principal — Villa Serena",
+  },
+  {
+    col: 2,
+    src: "/images/gallery-6.jpg",
+    type: "COMERCIAL",
+    name: "Boutique Estilo 3D",
+  },
+  {
+    col: 3,
+    src: "/images/gallery-7.jpg",
+    type: "RESIDENCIAL",
+    name: "Spa — Residencial Oasis",
+  },
+  {
+    col: 3,
+    src: "/images/gallery-8.jpg",
+    type: "RESIDENCIAL",
+    name: "Comedor — Casa Colonial",
+  },
+  {
+    col: 3,
+    src: "/images/gallery-9.jpg",
+    type: "WELLNESS",
+    name: "Centro Bienestar Zen",
+  },
 ];
 
-const startWidths = ['20%', '25%', '18%', '28%', '22%', '30%', '20%', '26%', '19%'];
+const startWidths = [
+  "20%",
+  "25%",
+  "18%",
+  "28%",
+  "22%",
+  "30%",
+  "20%",
+  "26%",
+  "19%",
+];
 
 export default function GallerySection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -39,8 +94,8 @@ export default function GallerySection() {
 
         const st1 = ScrollTrigger.create({
           trigger: item,
-          start: 'top 80%',
-          end: 'top 20%',
+          start: "top 80%",
+          end: "top 20%",
           scrub: true,
           onUpdate: (self) => {
             const progress = self.progress;
@@ -54,8 +109,8 @@ export default function GallerySection() {
 
         const st2 = ScrollTrigger.create({
           trigger: item,
-          start: 'top bottom',
-          end: 'bottom top',
+          start: "top bottom",
+          end: "bottom top",
           scrub: true,
           onUpdate: (self) => {
             gsap.set(image, { yPercent: -15 * self.progress });
@@ -78,23 +133,23 @@ export default function GallerySection() {
         if (!image) return;
 
         // Aseguramos que el ancho en móvil se mantenga al 100% de la columna
-        gsap.set(item, { width: '100%' });
+        gsap.set(item, { width: "100%" });
 
         const startW = parseFloat(startWidths[i]) / 100;
         const maxInset = ((1 - startW) / 2) * 100; // Porcentaje de recorte inicial en cada lado
 
         const st1 = ScrollTrigger.create({
           trigger: item,
-          start: 'top 85%',
-          end: 'top 15%',
+          start: "top 85%",
+          end: "top 15%",
           scrub: true,
           onUpdate: (self) => {
             const progress = self.progress;
             const currentInset = maxInset * (1 - progress);
-            
+
             // Recorte horizontal dinámico (simula el crecimiento de la imagen)
             gsap.set(item, { clipPath: `inset(0% ${currentInset}%)` });
-            
+
             // Escala interna para darle profundidad tridimensional
             gsap.set(image, { scale: 1.8 - 0.8 * progress });
           },
@@ -103,8 +158,8 @@ export default function GallerySection() {
 
         const st2 = ScrollTrigger.create({
           trigger: item,
-          start: 'top bottom',
-          end: 'bottom top',
+          start: "top bottom",
+          end: "bottom top",
           scrub: true,
           onUpdate: (self) => {
             // Paralaje suave en la imagen
@@ -131,12 +186,12 @@ export default function GallerySection() {
       id="gallery"
       ref={sectionRef}
       className="relative w-full z-[3]"
-      style={{ background: '#e8d5b5' }}
+      style={{ background: "#e8d5b5" }}
     >
       {/* Dark Band on Left */}
       <div
         className="absolute left-0 top-0 h-full bg-dark hidden lg:block"
-        style={{ width: '35%' }}
+        style={{ width: "35%" }}
       />
 
       {/* Section Title */}
@@ -146,9 +201,9 @@ export default function GallerySection() {
         </p>
         <h2
           className="font-display text-primary-light text-glow"
-          style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', lineHeight: 1.15 }}
+          style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1.15 }}
         >
-          DISEÑOS QUE REVELAN{' '}
+          DISEÑOS QUE REVELAN{" "}
           <span className="text-primary-accent">PROFUNDIDAD</span>
         </h2>
       </div>
@@ -162,18 +217,22 @@ export default function GallerySection() {
                 .filter((item) => item.col === col)
                 .map((item) => {
                   const globalIndex = galleryItems.findIndex(
-                    (gi) => gi.src === item.src
+                    (gi) => gi.src === item.src,
                   );
                   return (
                     <div
                       key={item.src}
-                      ref={(el) => { itemRefs.current[globalIndex] = el; }}
+                      ref={(el) => {
+                        itemRefs.current[globalIndex] = el;
+                      }}
                       className="relative overflow-hidden cursor-pointer group mx-auto"
-                      style={{ width: '100%', aspectRatio: '4/5' }}
+                      style={{ width: "100%", aspectRatio: "4/5" }}
                     >
                       <img
-                        ref={(el) => { imageRefs.current[globalIndex] = el; }}
-                        src={`${import.meta.env.BASE_URL}${item.src.replace(/^\//, '')}`}
+                        ref={(el) => {
+                          imageRefs.current[globalIndex] = el;
+                        }}
+                        src={`${import.meta.env.BASE_URL}${item.src.replace(/^\//, "")}`}
                         alt={item.name}
                         loading="lazy"
                         className="absolute inset-0 w-full h-full object-cover will-change-transform transition-transform duration-600 ease-out group-hover:scale-105"
