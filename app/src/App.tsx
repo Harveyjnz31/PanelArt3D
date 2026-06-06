@@ -1,16 +1,17 @@
-import { useState, useCallback } from 'react';
-import SmoothScrollProvider from './components/SmoothScrollProvider';
-import WebGLCanvas from './components/WebGLCanvas';
-import Preloader from './components/Preloader';
-import Navigation from './components/Navigation';
-import HeroSection from './sections/HeroSection';
-import IntroSection from './sections/IntroSection';
-import GallerySection from './sections/GallerySection';
-import VisionSection from './sections/VisionSection';
-import CraftSection from './sections/CraftSection';
-import TestimonialsSection from './sections/TestimonialsSection';
-import CTASection from './sections/CTASection';
-import FooterSection from './sections/FooterSection';
+import { useState, useCallback } from "react";
+import SmoothScrollProvider from "./components/SmoothScrollProvider";
+import WebGLCanvas from "./components/WebGLCanvas";
+import Preloader from "./components/Preloader";
+import Navigation from "./components/Navigation";
+import HeroSection from "./sections/HeroSection";
+import IntroSection from "./sections/IntroSection";
+import GallerySection from "./sections/GallerySection";
+import VisionSection from "./sections/VisionSection";
+import CraftSection from "./sections/CraftSection";
+import TestimonialsSection from "./sections/TestimonialsSection";
+import CTASection from "./sections/CTASection";
+import FooterSection from "./sections/FooterSection";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 function App() {
   const [preloaderDone, setPreloaderDone] = useState(false);
@@ -34,6 +35,7 @@ function App() {
         <CTASection />
         <FooterSection />
       </main>
+      <WhatsAppButton />
     </SmoothScrollProvider>
   );
 }
