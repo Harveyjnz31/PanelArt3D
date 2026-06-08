@@ -78,7 +78,7 @@ export default function HeroSection({ ready }: HeroSectionProps) {
             className="font-body text-warm-light mt-6 max-w-[560px] opacity-0"
             style={{ fontSize: 'clamp(1rem, 1.2vw, 1.125rem)', lineHeight: 1.7 }}
           >
-            Diseño, fabricación e instalación de paneles decorativos en yeso para interiores residenciales y comerciales en Cartagena de Indias, Colombia.
+            Diseño, fabricación e instalación de paneles decorativos en yeso para interiores y exteriores residenciales y comerciales en Cartagena de Indias, Colombia.
           </p>
 
           <div ref={ctaRef} className="mt-8 opacity-0 pointer-events-auto">

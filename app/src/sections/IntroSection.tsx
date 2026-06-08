@@ -47,7 +47,7 @@ export default function IntroSection() {
           className="font-accent italic text-warm-light max-w-[900px] leading-relaxed opacity-0"
           style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', fontWeight: 500 }}
         >
-          Nuestros paneles no decoran paredes. Las transforman en superficies tridimensionales que juegan con la luz, crean profundidad y convierten cualquier espacio en una experiencia visual.
+          Nuestros paneles no decoran paredes. Las transforman en superficies tridimensionales que juegan con la luz, crean profundidad y convierten cualquier espacio en una experiencia visual. Además, cuentan con propiedades antihumedad que ayudan a evitar el deterioro de las paredes.
         </p>
       </div>
     </section>
