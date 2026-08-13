@@ -1,5 +1,5 @@
 const WhatsAppButton = () => {
-  const phoneNumber = "573205865823";
+  const phoneNumber = "573115926597";
 
   return (
     <a
